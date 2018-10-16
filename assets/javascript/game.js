@@ -17,4 +17,37 @@ document.onkeyup = function(event) {
     lettersGuessed.push(playerGuess);
     console.log(computerGuess[0]);
 
+    if((playerGuess === computerGuess[0]) && ( guessesLeft > 0)) {
+        wins++;
+        guessesLeft = 9;
+        lettersGuessed.length = 0;
+        computerGuess.length = 0;
+        var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        computerGuess.push(compGuess);
+        console.log(computerGuess [0]);
+    }
+
+    else if((playerGuess !== computerGuess[0]) && (guessesLeft > 0)) {
+        guessesLeft = guessesLeft-1;
+    }
+
+    else {
+        losses++;
+        guessesLeft = 9;
+        lettersGuessed.length = 0;
+        computerGuess.length = 0;
+        var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        computerGuess.push(compGuess);
+        console.log(computerGuess[0]);
+    }
+
+    var html =  "<h1>The Psychic Game</h1>" +
+                "<h2>Guess what letter I'm thinking of</h2>" +
+                "<p>Wins: " + wins + "</p>" +
+                "<p>Losses: " + losses + "</p>" +
+                "<p>Guesses Left: " + guessesLeft + "</p>" +
+                "<p>Your Guesses So Far: " + lettersGuessed + "</p>";
+
+    document.querySelector("#game").innerHTML = html;
 }
+
