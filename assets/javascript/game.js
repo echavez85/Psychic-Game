@@ -27,7 +27,7 @@ document.onkeyup = function(event) {
         console.log(computerGuess [0]);
     }
 
-    else if((playerGuess !== computerGuess[0]) && (guessesLeft > 0)) {
+    else if((playerGuess !== computerGuess[0]) && (guessesLeft > 1)) {
         guessesLeft = guessesLeft-1;
     }
 
